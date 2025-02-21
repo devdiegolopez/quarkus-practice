@@ -1,16 +1,23 @@
 package org.acme;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+
+import java.util.logging.Logger;
 
 @Path("/hello")
 public class GreetingResource {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "Hello from Quarkus REST";
+    private static final Logger LOG = Logger.getLogger(String.valueOf(GreetingResource.class));
+
+    @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public String resources(@FormParam("name") String name
+    , @FormParam("cardNo") String cardNo
+    , @FormParam("zip") String zip) {
+
+        LOG.info(name + " " + cardNo + " " + zip);
+
+        return name + " " + cardNo + " " + zip;
     }
 }
