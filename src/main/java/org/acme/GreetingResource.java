@@ -18,6 +18,6 @@ public class GreetingResource {
 
         LOG.info(name + " " + cardNo + " " + zip);
 
-        return name + " " + cardNo + " " + zip;   
+        return name + " " + cardNo + " " + zip;
     }
 }
