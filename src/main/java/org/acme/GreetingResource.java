@@ -23,7 +23,7 @@ public class GreetingResource {
     @GET
     public String resourcesQuery(@QueryParam("name") String name
     , @QueryParam("cardNo") String cardNo
-    , @QueryParam("zip") String zip) {
+    , @QueryParam("zip") String zip) {     
         LOG.info(name + " " + cardNo + " " + zip);
         return name + " " + cardNo + " " + zip;
     }
